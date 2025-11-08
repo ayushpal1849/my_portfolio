@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}About Me{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+{% block content %}
+<div class="container mt-5 about-section">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="mb-4 text-center">About Me</h1>
+
+            <div class="card p-4 mb-4">
+                <h2 class="card-title">Professional Summary</h2>
+                <p class="card-text">{{ data.summary | default('Summary not available.') }}</p>
+            </div>
+
+            <div class="card p-4 mb-4">
+                <h2 class="card-title">Personal Details</h2>
+                <p><strong>Email:</strong> {{ data.email }}</p>
+                <p><strong>Phone:</strong> {{ data.phone }}</p>
+                <p><strong>Location:</strong> {{ data.location | default('N/A') }}</p>
+                <p><strong>LinkedIn:</strong> <a href="https://{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a></p>
+                <p><strong>Degree:</strong> Graduation (B.Tech)</p>
+                
+            </div>
+
+            <!-- Download Resume Button -->
+            <a href="{{ url_for('download_resume') }}" class="btn btn-primary btn-lg d-block mx-auto" style="width: fit-content;">Download Resume</a>
+            <p></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+/* Hero Section Layout */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.4;
+}
+
+.highlight {
+  color: #ffda79;
+}
+
+/* Typing Effect */
+.typing {
+  display: inline-block;
+  position: relative;
+  color: #ffda79;
+  font-family: 'Inconsolata', Consolas, monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.typing::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: white;
+  background: transparent;
+  animation:
+    typing 4s steps(28, end) forwards,
+    caret 0.7s step-end infinite;
+}
+
+/* Typing animation (reveals text) */
+@keyframes typing {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+/* Blinking caret */
+@keyframes caret {
+  50% { color: transparent; }
+}
+
+/* Contact icons (keep your existing style) */
+.contact-info {
+  padding: 50px 0;
+}
+.contact-info .icon {
+  font-size: 2.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.contact-info a:hover .icon {
+  transform: scale(1.2);
+  color: #764ba2;
+}

@@ -1,0 +1,46 @@
+.skill-card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill-pill {
+    background-color: #f1f3f5;
+    color: #495057;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.skill-pill:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}

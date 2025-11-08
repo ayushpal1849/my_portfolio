@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Technical Skills{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/technical_skills.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Technical Skills</h1>
+    <div class="row">
+        {% for category, skill_list in skills.items() %}
+        <div class="col-lg-6 mb-4">
+            <div class="card skill-card h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-capitalize">{{ category.replace('_', ' ') }}</h5>
+                    <hr>
+                    <div class="skills-container mt-3">
+                        {% for skill in skill_list %}
+                        <span class="skill-pill">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

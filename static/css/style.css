@@ -1,0 +1,36 @@
+/* Custom styles */
+
+/* Added styles for skill bars and responsive cards */
+.skill-bar{background:#e9ecef;border-radius:6px;overflow:hidden}
+.skill-bar > span{display:block;height:12px;border-radius:6px}
+
+/* Skill bar styles */
+.skill-bar{background:#f1f3f5;border-radius:6px;overflow:hidden;height:12px}
+.skill-bar > span{display:block;height:12px;background:linear-gradient(90deg,#0d6efd,#6610f2);width:0%;border-radius:6px}
+.card .bi{font-size:1.2rem;margin-right:8px}
+/* Append this to your existing style.css or create the file if it doesn't exist */
+
+body.animated-gradient {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: #333; /* Adjust default text color for readability if needed */
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Make cards and navbar slightly transparent to see the background */
+.card, .navbar {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(5px);
+}

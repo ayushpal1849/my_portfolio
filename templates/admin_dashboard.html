@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Admin Dashboard</h1>
+        <a href="{{ url_for('admin_logout') }}" class="btn btn-danger">Logout</a>
+    </div>
+
+    <!-- CSRF Token for JS -->
+    <input type="hidden" id="csrf_token" value="{{ csrf_token() }}">
+
+    <!-- Action Buttons -->
+    <div class="mb-4">
+        <button id="btn-add-experience" class="btn btn-custom">Add Professional Experience</button>
+        <button id="btn-add-project" class="btn btn-custom">Add Project</button>
+        <button id="btn-add-certification" class="btn btn-custom">Add Certification</button>
+        <button id="btn-upload-resume" class="btn btn-custom">Upload Resume</button>
+    </div>
+
+    <!-- Hidden Forms for Experience and Project -->
+    <div class="row mt-4">
+        <!-- Add Experience Form (Hidden by default) -->
+        <div class="col-12">
+            <form id="form-experience" class="card p-4" style="display: none;">
+                <h5 class="mb-3">New Professional Experience</h5>
+                <div class="mb-3">
+                    <label for="exp-company" class="form-label">Company</label>
+                    <input type="text" class="form-control" id="exp-company" name="company" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exp-role" class="form-label">Role</label>
+                    <input type="text" class="form-control" id="exp-role" name="role" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exp-duration" class="form-label">Duration</label>
+                    <input type="text" class="form-control" id="exp-duration" name="duration">
+                </div>
+                <div class="mb-3">
+                    <label for="exp-responsibilities" class="form-label">Responsibilities (one per line)</label>
+                    <textarea class="form-control" id="exp-responsibilities" name="responsibilities" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Experience</button>
+            </form>
+        </div>
+
+        <!-- Add Project Form (Hidden by default) -->
+        <div class="col-12 mt-3">
+            <form id="form-project" class="card p-4" style="display: none;">
+                <h5 class="mb-3">New Project</h5>
+                <div class="mb-3">
+                    <label for="proj-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="proj-title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="proj-description" class="form-label">Description</label>
+                    <textarea class="form-control" id="proj-description" name="description" rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="proj-link" class="form-label">Project Link</label>
+                    <input type="url" class="form-control" id="proj-link" name="link">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Project</button>
+            </form>
+        </div>
+
+        <!-- Add Certification Form (Hidden by default) -->
+        <div class="col-12 mt-3">
+            <form id="form-certification" class="card p-4" style="display: none;" action="{{ url_for('add_certification') }}" method="POST" enctype="multipart/form-data">
+                <h5 class="mb-3">Add Certification</h5>
+                <div class="mb-3">
+                    <label for="cert-title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="cert-title" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cert-org" class="form-label">Organization</label>
+                    <input type="text" class="form-control" id="cert-org" name="organization" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cert-year" class="form-label">Year</label>
+                    <input type="text" class="form-control" id="cert-year" name="year" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cert-image" class="form-label">Certificate Image (Optional)</label>
+                    <input type="file" class="form-control" id="cert-image" name="image" accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-custom">Add Certification</button>
+            </form>
+        </div>
+
+        <!-- Upload Resume Form (Hidden by default) -->
+        <div class="col-12 mt-3">
+            <form id="form-resume" class="card p-4" style="display: none;" action="{{ url_for('upload_resume') }}" method="POST" enctype="multipart/form-data">
+                <h5 class="mb-3">Upload/Update Resume</h5>
+                <p class="card-text">Upload a new resume. This will replace the existing one.</p>
+                <div class="mb-3">
+                    <input class="form-control" type="file" name="resume" accept=".pdf" required>
+                </div>
+                <button type="submit" class="btn btn-custom">Upload Resume</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

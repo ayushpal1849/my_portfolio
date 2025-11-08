@@ -1,0 +1,5 @@
+body {
+    background-color: #f8f9fa; /* A light fallback color */
+    background-image: radial-gradient(#2d2b2b  1px, transparent 1px); 
+    background-size: 16px 16px;
+}

@@ -1,0 +1,94 @@
+{
+  "name": "Ayush Pal",
+  "location": "Kanpur Nagar, Uttar Pradesh, India",
+  "phone": "+91 6393649521",
+  "email": "ayushpal1849@gmail.com",
+  "linkedin": "linkedin.com/in/ayush-pal-ap223",
+  "summary": "Results-driven AI Developer (Python Developer) with over one year of hands-on experience developing and training machine learning models. Highly competent in data analysis, full-stack web development, and Python-based AI libraries. Proven ability to apply strong knowledge of the SDLC and Agile methodologies to deliver technology solutions in a remote environment.",
+  "technical_skills": {
+    "programming_languages": [
+      "Python",
+      "C",
+      "PHP"
+    ],
+    "web_development": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Bootstrap"
+    ],
+    "databases": [
+      "SQL",
+      "MySQL"
+    ],
+    "frameworks_libraries": [
+      "Flask",
+      "Django",
+      "React JS"
+    ],
+    "tools": [
+      "Git",
+      "GitHub"
+    ],
+    "cloud": [
+      "Google Cloud Platform"
+    ],
+    "data_analysis": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Tableau"
+    ]
+  },
+  "education": [
+    {
+      "degree": "Bachelor Of Technology (B. Tech) In Computer Science & Engineering",
+      "institute": "Apollo Institute Of Technology, Kanpur",
+      "cgpa": "7.62",
+      "passing_year": 2023
+    },
+    {
+      "degree": "Intermediate (12th) In Science and Mathematics",
+      "institute": "Saraswati Vidya Mandir Inter College, Kanpur",
+      "cgpa": "73.8",
+      "passing_year": 2019
+    },
+    {
+      "degree": "High School (10th) In Science",
+      "institute": "Saraswati Vidya Mandir Inter College, Kanpur",
+      "cgpa": "78.6",
+      "passing_year": 2017
+    }
+  ],
+  "professional_experience": [
+    {
+      "company": "PALMDIGITALZ (LET US SUPPORT PVT. LTD.)",
+      "location": "CHENNAI",
+      "role": "AI Engineer (Python Developer)",
+      "duration": "August 2024 - Present",
+      "responsibilities": [
+        "Developed and trained machine learning models using Python libraries like scikit-learn, TensorFlow, Tesseract and Keras, focusing on model training, accuracy and performance.",
+        "Applied data cleaning, transformation, and feature selection techniques using Pandas, NumPy, and Matplotlib to prepare datasets for analysis, model development and to improve model performance .",
+        "Worked closely with senior developers and data scientists to implement AI solutions, optimize existing models, and ensure alignment with project goals and requirements.",
+        "Assisted in evaluating machine learning models by testing various algorithms, fine-tuning hyper parameters, and improving model performance through cross-validation and error analysis.",
+        "Worked with backend technologies such as Python Flask and SQL and used Git for version control."
+      ]
+    }
+  ],
+  "certifications": [
+    "Python Programming, IIT Kanpur, August 2021",
+    "Elements of AI, Google Digital, August 2020",
+    "Data Analytics Consulting Virtual Internship, KPMG, August 2023",
+    "Web Development, Internshala, February 2023",
+    "Computer System Security, IIT Kanpur, March 2021",
+    "Software Engineering Virtual Experience, JPMorgan Chase & Co., June 2020",
+    "Fundamentals of Digital Marketing, Google Digital, June 2020",
+    "Industrial IOT, Coursera, January 2020"
+  ],
+  "achievements": [
+    "Cleared TCS NQT Cognitive Exam with 70%",
+    "Incharge in hosting Cultural Fest in college",
+    "Organising TechStra Technical Event in college"
+  ]
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Professional Experience</h2>
+  {% for exp in experiences %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5>{{ exp.company if exp.company else exp['company'] }} — {{ exp.role if exp.role else exp['role'] }}</h5>
+        <p><strong>Duration:</strong> {{ exp.duration if exp.duration else exp.get('duration','') }}</p>
+        <ul>
+          {# This handles both DB objects (where responsibilities is a JSON string)
+             and dictionary objects from the fallback JSON (where it's a list) #}
+          {% set responsibilities_list = exp.responsibilities | fromjson if exp.responsibilities is string else exp.responsibilities %}
+          {% if responsibilities_list %}
+            {% for item in responsibilities_list %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

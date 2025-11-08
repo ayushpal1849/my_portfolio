@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Projects</h2>
+  {% if projects %}
+    {% for project in projects %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ project.title }}</h5>
+          {% if project.description %}
+            <ul class="card-text">
+              {% for line in project.description.split('\n') %}
+                {% if line.strip() %}<li>{{ line.strip() }}</li>{% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          {% if project.link %}
+            <a href="{{ project.link }}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">View Project</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No projects to display at the moment.</p>
+  {% endif %}
+</div>
+{% endblock %}

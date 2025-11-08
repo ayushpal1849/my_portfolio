@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Certifications{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/certifications.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-5">Certifications</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            {% for cert in certs %}
+            <div class="card mb-3 cert-card" data-cert-id="{{ cert.id }}" {% if cert.image_file %}data-image-src="{{ url_for('static', filename='uploads/certs/' + cert.image_file) }}"{% endif %}>
+                <div class="card-body">
+                    <h5 class="card-title">{{ cert.title }}</h5>
+                    <p class="card-text">{{ cert.organization }} - {{ cert.year }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <div id="cert-image-display">
+                <img id="cert-image" src="" alt="Certificate Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const certCards = document.querySelectorAll('.cert-card');
+    const certImage = document.getElementById('cert-image');
+    let currentImageSrc = '';
+
+    certCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const imageSrc = this.dataset.imageSrc;
+            if (imageSrc) {
+                if (certImage.style.display === 'block' && currentImageSrc === imageSrc) {
+                    certImage.style.display = 'none';
+                } else {
+                    certImage.src = imageSrc;
+                    certImage.style.display = 'block';
+                    currentImageSrc = imageSrc;
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

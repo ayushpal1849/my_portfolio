@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Educational Qualification</h2>
+  <div class="row">
+    {% for ed in educations %}
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">{{ ed.degree if ed.degree else ed['degree'] }}</h5>
+            <p class="card-text">{{ ed.institute if ed.institute else ed['institute'] }}</p>
+            <p class="card-text">CGPA/Percentage: {{ ed.cgpa if ed.cgpa else ed.get('cgpa','') }} | Passed: {{ ed.passing_year if ed.passing_year else ed.get('passing_year','') }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

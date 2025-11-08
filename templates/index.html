@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Home - {{ contact.name }}{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="hero-section">
+  <div class="container hero-content">
+    <h1>Hi! I am <span class="highlight">{{ contact.name }}</span>, an 
+      <span class="typing">AI Engineer / Python Developer</span>
+    </h1>
+  </div>
+</section>
+
+
+<section class="contact-info text-center">
+    <div class="container">
+        <h2 class="mb-5">Get In Touch</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3"><a href="tel:{{ contact.phone }}" class="text-dark text-decoration-none"><i class="bi bi-phone icon"></i><p>{{ contact.phone }}</p></a></div>
+            <div class="col-md-4 mb-3"><a href="mailto:{{ contact.email }}" class="text-dark text-decoration-none"><i class="bi bi-envelope icon"></i><p>{{ contact.email }}</p></a></div>
+            <div class="col-md-4 mb-3"><a href="https://{{ contact.linkedin }}" target="_blank" class="text-dark text-decoration-none"><i class="bi bi-linkedin icon"></i><p>{{ contact.linkedin }}</p></a></div>
+        </div>
+    </div>
+</section>
+
+<script>
+const typingElement = document.querySelector('.typing-text');
+const words = ["AI Engineer", "Python Developer"];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingSpeed = 100;
+const erasingSpeed = 60;
+const delayBetweenWords = 1500; // pause between words
+
+function type() {
+  const currentWord = words[wordIndex];
+  
+  if (!isDeleting) {
+    typingElement.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+    
+    if (charIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(type, delayBetweenWords);
+    } else {
+      setTimeout(type, typingSpeed);
+    }
+  } else {
+    typingElement.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+    
+    if (charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(type, 500);
+    } else {
+      setTimeout(type, erasingSpeed);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(type, 1000);
+});
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+.dashboard-card {
+    transition: box-shadow 0.3s;
+}
+.dashboard-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.btn-custom {
+    background-color: #667eea;
+    border-color: #667eea;
+    color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.btn-custom:hover {
+    background-color: #764ba2;
+    border-color: #764ba2;
+    color: white;
+}
