@@ -10,6 +10,18 @@
   position: relative;
   overflow: hidden;
 }
+.hero-section {
+    padding: 100px 0;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Reduce font size on smaller screens */
+    }
+}
+
+
 
 .hero-content h1 {
   font-size: 3.5rem;
@@ -19,6 +31,10 @@
 }
 
 .highlight {
+  color: #ffda79;
+}
+
+.typing-text {
   color: #ffda79;
 }
 

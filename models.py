@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from collections import defaultdict
 from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
@@ -49,6 +50,17 @@ class Skill(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category = db.Column(db.String(128))
     name = db.Column(db.String(128))
+
+    @classmethod
+    def get_skills_by_category(cls):
+        """
+        Queries all skills and groups them by category.
+        """
+        skills_by_category = defaultdict(list)
+        skills = cls.query.order_by(cls.category, cls.name).all()
+        for skill in skills:
+            skills_by_category[skill.category].append(skill)
+        return dict(skills_by_category)
 
 class Achievement(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -18,7 +18,10 @@
                     <hr>
                     <div class="skills-container mt-3">
                         {% for skill in skill_list %}
-                        <span class="skill-pill">{{ skill }}</span>
+                        {# skill can be a DB object or a string from fallback JSON #}
+                        <span class="skill-pill">
+                            {{ skill.name if skill.name else skill }}
+                        </span>
                         {% endfor %}
                     </div>
                 </div>
