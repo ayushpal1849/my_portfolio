@@ -1,16 +1,22 @@
 Flask>=2.2
 Flask-SQLAlchemy>=3.0
 Flask-Migrate>=4.0
-PyPDF2>=3.0
 python-dotenv>=1.0
+
+# Local MySQL dev (keep)
 pymysql>=1.0
+
+# Postgres for production
+psycopg2-binary>=2.9
+
+# security & forms
 Flask-WTF>=1.1
 Flask-Bcrypt>=1.0.1
 bcrypt>=4.0.1
-psycopg2-binary>=2.9
 
-# Additional for production
+# Production server
 gunicorn>=21.2
+
 Werkzeug>=3.0
 itsdangerous>=2.1
 Jinja2>=3.1
