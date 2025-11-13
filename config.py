@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from pathlib import Path
+import urllib.parse
 
 # load .env from project root
 env_path = Path(__file__).parent / '.env'
