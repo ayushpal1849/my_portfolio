@@ -70,13 +70,22 @@ graph TD
 ```
 My_Portfolio/
 ├── app.py              # Main Flask application file
+├── config.py           # Configuration settings
+├── models.py           # Database models
 ├── requirements.txt    # Project dependencies
+├── data/
+│   └── resume_data.json # Parsed data storage
+├── scripts/
+│   └── parse_resume.py # Resume parsing script
 ├── static/
-│   ├── css/
-│   └── js/
+│   ├── css/            # Stylesheets
+│   ├── js/             # JavaScript files
+│   ├── resume/         # Resume PDF storage
+│   └── uploads/        # Uploaded images (certs, etc.)
 └── templates/
     ├── base.html       # Base template
     ├── index.html      # Home page template
+    ├── admin_dashboard.html # Admin interface
     └── ...             # Other HTML templates
 ```
 
