@@ -6,8 +6,9 @@ A personal portfolio website built with Python and Flask to showcase my skills, 
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Setup and Installation](#setup-and-installation)
+- [System Architecture](#system-architecture)
 - [Project Structure](#project-structure)
+- [Setup and Installation](#setup-and-installation)
 - [Configuration](#configuration)
 - [Deployment](#deployment)
 
@@ -24,6 +25,60 @@ A personal portfolio website built with Python and Flask to showcase my skills, 
 - **Frontend**: HTML5, CSS3, JavaScript
 - **Templating**: Jinja2
 - **Styling**: Bootstrap 5
+
+## System Architecture
+
+The following diagram illustrates the architecture of the Portfolio application, highlighting the data processing pipeline and the interaction between the client, the Flask backend, and frontend resources.
+
+```mermaid
+graph TD
+    subgraph Client_Side ["Client Side"]
+        Browser[("User Browser")]
+    end
+    
+    subgraph Server_Side ["Flask Server"]
+        App["app.py (Router & Logic)"]
+        Jinja["Jinja2 Templating"]
+    end
+    
+    subgraph Data_Processing ["Data Processing"]
+        Resume["Resume (PDF)"]
+        Script["Parser Script (parse_resume.py)"]
+        Data["Data Store (resume_data.json)"]
+    end
+
+    subgraph Assets ["Static Assets"]
+        CSS_JS["CSS / JS / Images"]
+        HTML["HTML Templates"]
+    end
+
+    %% Data Flow
+    Resume -->|Extracts Info| Script
+    Script -->|Generates| Data
+    
+    %% Web Flow
+    Browser -->|HTTP GET| App
+    App -->|Reads| Data
+    App -->|Renders| Jinja
+    Jinja -->|Uses| HTML
+    Jinja -->|Links| CSS_JS
+    Jinja -->|Returns HTML| Browser
+```
+
+## Project Structure
+
+```
+My_Portfolio/
+├── app.py              # Main Flask application file
+├── requirements.txt    # Project dependencies
+├── static/
+│   ├── css/
+│   └── js/
+└── templates/
+    ├── base.html       # Base template
+    ├── index.html      # Home page template
+    └── ...             # Other HTML templates
+```
 
 ## Setup and Installation
 
@@ -61,20 +116,7 @@ To run this project locally, follow these steps:
     ```
     The application will be available at `http://127.0.0.1:5000`.
 
-## Project Structure
 
-```
-My_Portfolio/
-├── app.py              # Main Flask application file
-├── requirements.txt    # Project dependencies
-├── static/
-│   ├── css/
-│   └── js/
-└── templates/
-    ├── base.html       # Base template
-    ├── index.html      # Home page template
-    └── ...             # Other HTML templates
-```
 
 ## Configuration
 
