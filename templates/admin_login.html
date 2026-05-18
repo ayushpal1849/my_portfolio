@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
+
+{% block title %}Admin Login{% endblock %}
+
 {% block content %}
-<div class="container mt-4">
-  <h2>Admin Login</h2>
-  <form method="post" action="{{ url_for('admin_login') }}">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-    <div class="mb-3"><label>Username</label><input name="username" class="form-control" required></div>
-    <div class="mb-3"><label>Password</label><input name="password" type="password" class="form-control" required></div>
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
-</div>
+<section class="admin-page admin-auth-page">
+  <div class="admin-auth-card">
+    <div class="admin-kicker">Private maintenance utility</div>
+    <h1>Admin Login</h1>
+    <p class="admin-muted">Access the content tools for projects, experience, certifications, and resume updates.</p>
+
+    <form method="post" action="{{ url_for('admin_login') }}" class="admin-form-stack">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="admin-field">
+        <label for="username">Username</label>
+        <input id="username" name="username" class="form-control admin-input" required>
+      </div>
+
+      <div class="admin-field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" class="form-control admin-input" required>
+      </div>
+
+      <button class="admin-primary-button" type="submit">Login</button>
+    </form>
+  </div>
+</section>
 {% endblock %}

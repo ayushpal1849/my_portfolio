@@ -2,10 +2,13 @@
 __pycache__/
 *.pyc
 venv/
+.venv/
 .env
 instance/
 .pytest_cache/
 .mypy_cache/
+runtime-data/
+deploy/backups/
 
 # OS
 .DS_Store

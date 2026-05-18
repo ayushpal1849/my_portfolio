@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    image: ayush-portfolio-app:latest
+    container_name: ayush-portfolio-app
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PORT: "8000"
+      UPLOAD_FOLDER: /app/static/uploads
+      RESUME_FOLDER: /app/static/resume
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./runtime-data/uploads:/app/static/uploads
+      - ./runtime-data/resume:/app/static/resume
